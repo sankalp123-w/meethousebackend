@@ -12,7 +12,7 @@ const ACTIONS = require('./actions')
 
 const io = require('socket.io')(server,{
     cors:{
-        origin:'https://elated-ardinghelli-d61516.netlify.app/:1',
+        origin:'https://elated-ardinghelli-d61516.netlify.app',
         methods:['GET','POST']
     },
 })
@@ -23,7 +23,7 @@ app.use(cookieParser());
 // };
 app.use(cors( {
     credentials: true,
-    origin: ['https://elated-ardinghelli-d61516.netlify.app/:1'],
+    origin: ['https://elated-ardinghelli-d61516.netlify.app'],
 }))
 
 app.use('/storage', express.static('storage'));
