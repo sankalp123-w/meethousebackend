@@ -7,18 +7,19 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const server = require('http').createServer(app)
 const ACTIONS = require('./actions')
-app.use(cors({ origin:"https://elated-ardinghelli-d61516.netlify.app", credentials: true }))
+app.use(cookieParser());
+const corsOption = {
+    credentials: true,
+    origin: ['https://elated-ardinghelli-d61516.netlify.app/:1'],
+};
+app.use(cors(corsOption))
 const io = require('socket.io')(server,{
     cors:{
         origin:'https://elated-ardinghelli-d61516.netlify.app/:1',
         methods:['GET','POST']
     },
 })
-app.use(cookieParser());
-// const corsOption = {
-//     credentials: true,
-//     origin: ['https://elated-ardinghelli-d61516.netlify.app/:1'],
-// };
+
 
 app.use('/storage', express.static('storage'));
 
