@@ -9,16 +9,16 @@ const server = require('http').createServer(app)
 const ACTIONS = require('./actions')
 const io = require('socket.io')(server,{
     cors:{
-        origin:'*:*',
+        origin:'https://elated-ardinghelli-d61516.netlify.app/',
         methods:['GET','POST']
     },
 })
 app.use(cookieParser());
-// const corsOption = {
-//     credentials: true,
-//     origin: ['http://localhost:3000'],
-// };
-app.use(cors());
+const corsOption = {
+    credentials: true,
+    origin: ['https://elated-ardinghelli-d61516.netlify.app/'],
+};
+app.use(cors(corsOption));
 app.use('/storage', express.static('storage'));
 
 const PORT = process.env.PORT || 5500;
