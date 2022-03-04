@@ -94,15 +94,17 @@ class AuthController {
         await tokenService.storeRefreshToken(refreshToken, user._id);
 
         res.cookie('refreshToken', refreshToken, {
+            secure:true,
             maxAge: 1000 * 60 * 60 * 24 * 30,
-            httpOnly: true,
-            secure: process.env.NODE_ENV !== "development"
+            httpOnly: true
+           
         });
 
         res.cookie('accessToken', accessToken, {
+             secure: true,
             maxAge: 1000 * 60 * 60 * 24 * 30,
-            httpOnly: true,
-            secure: process.env.NODE_ENV !== "development"
+            httpOnly: true
+   
         });
 
         const userDto = new UserDto(user);
@@ -151,15 +153,17 @@ class AuthController {
         }
         // put in cookie
         res.cookie('refreshToken', refreshToken, {
+            secure: true,
             maxAge: 1000 * 60 * 60 * 24 * 30,
             httpOnly: true,
-            secure: process.env.NODE_ENV !== "development"
+            
         });
 
         res.cookie('accessToken', accessToken, {
+             secure: true,
             maxAge: 1000 * 60 * 60 * 24 * 30,
-            httpOnly: true,
-            secure: process.env.NODE_ENV !== "development"
+            httpOnly: true
+           
         });
         // response
         const userDto = new UserDto(user);
