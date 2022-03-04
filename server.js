@@ -12,7 +12,7 @@ app.set('trust proxy', 1);
 
 const io = require('socket.io')(server,{
     cors:{
-        origin:'https://meethouse.netlify.app/',
+        origin:'https://meethouse.netlify.app',
         methods:['GET','POST']
     },
 })
@@ -23,7 +23,7 @@ app.use(cookieParser());
 // };
 app.use(cors( {
     credentials: true,
-    origin: ['https://meethouse.netlify.app/'],
+    origin: ['https://meethouse.netlify.app'],
 }))
 
 app.use('/storage', express.static('storage'));
