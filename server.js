@@ -8,7 +8,7 @@ const cookieParser = require('cookie-parser');
 const server = require('http').createServer(app)
 const ACTIONS = require('./actions')
 
-
+app.set('trust proxy', 1);
 
 const io = require('socket.io')(server,{
     cors:{
