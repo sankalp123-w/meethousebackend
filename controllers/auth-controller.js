@@ -94,6 +94,7 @@ class AuthController {
         await tokenService.storeRefreshToken(refreshToken, user._id);
 
         res.cookie('refreshToken', refreshToken, {
+            sameSite:'none',
             secure:true,
             maxAge: 1000 * 60 * 60 * 24 * 30,
             httpOnly: true
@@ -101,6 +102,7 @@ class AuthController {
         });
 
         res.cookie('accessToken', accessToken, {
+            sameSite:'none',
              secure: true,
             maxAge: 1000 * 60 * 60 * 24 * 30,
             httpOnly: true
@@ -153,6 +155,7 @@ class AuthController {
         }
         // put in cookie
         res.cookie('refreshToken', refreshToken, {
+            sameSite:'none',
             secure: true,
             maxAge: 1000 * 60 * 60 * 24 * 30,
             httpOnly: true,
@@ -160,6 +163,7 @@ class AuthController {
         });
 
         res.cookie('accessToken', accessToken, {
+            sameSite:'none',
              secure: true,
             maxAge: 1000 * 60 * 60 * 24 * 30,
             httpOnly: true
