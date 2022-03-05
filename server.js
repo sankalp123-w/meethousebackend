@@ -17,7 +17,10 @@ app.set('trust proxy', 1);
 //     },
 // })
 const { Server } = require("socket.io");
-const io = new Server(server);
+const io = new Server(server,{ cors:{
+        origin:'https://meethouse.netlify.app',
+        methods:['GET','POST']
+    },});
 app.use(cookieParser());
 // const corsOption = {
 //     credentials: true,
