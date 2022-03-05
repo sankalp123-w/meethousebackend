@@ -26,6 +26,7 @@ class ActivateController {
             jimResp
                 .resize(150, Jimp.AUTO)
                 .write(path.resolve(__dirname, `../storage/${imagePath}`));
+            console.log(__dirname, `../storage/${imagePath}`);
         } catch (err) {
             res.status(500).json({ message: 'Could not process the image' });
         }
