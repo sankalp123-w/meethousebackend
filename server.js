@@ -10,12 +10,14 @@ const ACTIONS = require('./actions')
 
 app.set('trust proxy', 1);
 
-const io = require('socket.io')(server,{
-    cors:{
-        origin:'https://meethouse.netlify.app',
-        methods:['GET','POST']
-    },
-})
+// const io = require('socket.io')(server,{
+//     cors:{
+//         origin:'https://meethouse.netlify.app',
+//         methods:['GET','POST']
+//     },
+// })
+const { Server } = require("socket.io");
+const io = new Server(server);
 app.use(cookieParser());
 // const corsOption = {
 //     credentials: true,
