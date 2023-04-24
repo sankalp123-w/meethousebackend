@@ -18,7 +18,7 @@ app.set('trust proxy', 1);
 // })
 const { Server } = require("socket.io");
 const io = new Server(server,{ cors:{
-        origin:'https://meethouse.netlify.app',
+        origin:'https://meethousefrontend.vercel.app/',
         methods:['GET','POST']
     },});
 app.use(cookieParser());
@@ -28,7 +28,7 @@ app.use(cookieParser());
 // };
 app.use(cors( {
     credentials: true,
-    origin: ['https://meethouse.netlify.app'],
+    origin: ['https://meethousefrontend.vercel.app/'],
 }))
 
 app.use('/storage', express.static('storage'));
