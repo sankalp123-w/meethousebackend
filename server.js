@@ -9,6 +9,7 @@ const server = require('http').createServer(app)
 const ACTIONS = require('./actions')
 
 app.set('trust proxy', 1);
+app.use(cors())
 
 // const io = require('socket.io')(server,{
 //     cors:{
@@ -26,10 +27,10 @@ app.use(cookieParser());
 //     credentials: true,
 //     origin: ['https://elated-ardinghelli-d61516.netlify.app/:1'],
 // };
-app.use(cors( {
-    credentials: true,
-    origin: ['https://meethousefrontend.vercel.app/'],
-}))
+// app.use(cors( {
+//     credentials: true,
+//     origin: ['https://meethousefrontend.vercel.app/'],
+// }))
 
 app.use('/storage', express.static('storage'));
 
